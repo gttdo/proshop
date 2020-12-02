@@ -1,0 +1,19 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "MERN Shopping App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gttdo/proshop.git"
+  },
+  "author": "Gerardo Vinces",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gttdo/proshop/issues"
+  },
+  "homepage": "https://github.com/gttdo/proshop#readme"
+}
