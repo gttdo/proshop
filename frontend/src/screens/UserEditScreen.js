@@ -22,39 +22,20 @@ const UserEditScreen = ({ match, history }) => {
     const userUpdate = useSelector(state => state.userUpdate)
     const { loading: loadingUpdate, success: successUpdate, error: errorUpdate } = userUpdate
 
-    // useEffect(() => {
-    //     if(successUpdate){
-    //         dispatch({ type: USER_UPDATE_RESET})
-    //         history.push('/admin/userlist')
-    //     } else{
-    //         if(!user.name || user._id !== userId){
-    //             dispatch(getUserDetails(userId))
-    //         } else {
-    //             setName(user.name)
-    //             setEmail(user.email)
-    //             setIsAdmin(user.isAdmin)
-    //         }
-    //     }
-    // }, [dispatch, history, userId, user, successUpdate])
-
     useEffect(() => {
-        if (!userInfo || !userInfo.isAdmin){
-            history.push('/login');
-        } else {
-            if(successUpdate){
-                dispatch({ type: USER_UPDATE_RESET });
-                history.push('/admin/userlist');
+        if(successUpdate){
+            dispatch({ type: USER_UPDATE_RESET})
+            history.push('/admin/userlist')
+        } else{
+            if(!user.name || user._id !== userId){
+                dispatch(getUserDetails(userId))
             } else {
-                if(!user.name || userId !== user._id){
-                    dispatch(userActions.getUserDetails(userId));
-                } else {
-                    setName(user.name);
-                    setEmail(user.email);
-                    setIsAdmin(user.isAdmin);
-                }
+                setName(user.name)
+                setEmail(user.email)
+                setIsAdmin(user.isAdmin)
             }
         }
-    }, [dispatch, history, userInfo, user, userId, successUpdate]);
+    }, [dispatch, history, userId, user, successUpdate])
 
     const submitHandler = (e) => {
         e.preventDefault()
